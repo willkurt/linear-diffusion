@@ -1,0 +1,1 @@
+from lineardiffusion.model import *

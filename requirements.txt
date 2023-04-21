@@ -1,0 +1,4 @@
+mnist~=0.2.2
+setuptools~=67.6.0
+numpy~=1.24.2
+scikit-learn~=1.2.2
