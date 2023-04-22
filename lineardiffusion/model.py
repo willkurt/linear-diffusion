@@ -43,7 +43,7 @@ class LinearDiffusion:
         return self
 
     def predict(self, X, seed=1337):
-        assert(self._fit, "Please fit the model before running predict")
+        assert(self._fit == True, "Please fit the model before running predict")
         labels = np.array(X).reshape(-1, 1)
         label_embeddings = self.text_encoder.transform(labels)
         X_test, noise_test = self._create_features_noise(label_embeddings, seed=seed)
