@@ -42,7 +42,10 @@ Given only these simple components LinearDiffusion is able to do a surprising jo
 
 ## Install
 
-To Do
+To install clone the repo (or just download the package file in the /dist folder) and:
+```commandline
+pip install dist/linear-diffusion-0.1.tar.gz
+```
 
 ## Usage
 
