@@ -14,6 +14,7 @@ class LinearDiffusion:
         # assuming square images and latents/embeddings
         self.image_size = image_size
         self.latent_size = latent_size
+        self._fit = False
 
     def fit(self, X, y):
         """
@@ -36,11 +37,13 @@ class LinearDiffusion:
         X_train, y_noise = self._create_features_noise(label_embeddings, images_encoded)
         self.model = LinearRegression().fit(X=X_train, y=y_noise)
 
+        self._fit = True
         # I would like to be able to access the score method later, which might
         # mean refactoring this a bit more.
         return self
 
     def predict(self, X, seed=1337):
+        assert(self._fit, "Please fit the model before running predict")
         labels = np.array(X).reshape(-1, 1)
         label_embeddings = self.text_encoder.transform(labels)
         X_test, noise_test = self._create_features_noise(label_embeddings, seed=seed)
