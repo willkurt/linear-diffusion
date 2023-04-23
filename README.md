@@ -1,6 +1,6 @@
 # Linear Diffusion
 
-A Python Library for experimenting with a minimal implementation of a Diffusion model using entirely linear components.
+A Python Library for experimenting with a minimal implementation of a diffusion model built using entirely linear components.
 
 ## Design
 
@@ -8,14 +8,15 @@ Linear Diffusion is an attempt to explore the performance of essentially the min
 
 These models represent the current state of the art both in terms of performance and their immense complexity. 
 Linear Diffusion aims to be to Diffusion Models what Logistic Regression is to Large Convolutional Neural 
-Networks. One of my personal favorite bench marks is that Logistic Regression, often dismissed by 
-data scientists as "just" a linear model is able to achieve > 90% accuracy on the MNIST data set. 
-While this is far from state of the art, it is much better than many people naively guess.
+Networks. One of my personal favorite benchmarks is that Logistic Regression, often dismissed by 
+data scientists as "just" a linear model, is able to achieve > 90% accuracy on the MNIST data set. 
+While this is far from state of the art, it is much better than many people naively guess. Likewise while Linear
+Diffusion is far from the capabilities of models multiple orders of magnitude inside, it still performs surprisingly well!
 
 Diffusion models can be broken down into 3 major parts:
 
 - An image encoder, typically a *Variational Autoencoder*
-- A text embedder which creates vector representation of the target text, often a *Transformer* or similar style *LLM*
+- A text embedder which creates vector representation of the target text, often an *LSTM*, *Transformer* or similar style *LLM*
 - A denoiser that predicts noise in the image given a caption represented by the text embedder, typically a *Denoising UNET*
 
 For those familiar with current work in deep learning, what makes diffusion models so impressive and complex is that each 
@@ -28,23 +29,24 @@ the most rudimentary task of a transformer. The simple challenge is:
 
 > from a simple language of only single digits, can we generate passable images of digits?
 
-I don't expect to use linear models to create an Astronaut Riding a Horse, but these results are pretty cool:
+I don't expect to use linear models to create an "Astronaut Riding a Horse", but these results are pretty cool:
 
 !["linear diffusion results"](./linear_diffusion_results.png)
 
 The architecture of Linear Diffusion consists of these linear components:
 
 - PCA for image encoding
-- One-Hot encoding for "text"
-- Multi-linear regression to denoise
+- One-Hot encoding for "text embedding"
+- Linear regression to denoise
 
-Given only these simple components LinearDiffusion is able to do a surprising job of creating a purely linear generative model!
+Given only these simple components Linear Diffusion is able to do a surprising job of creating a purely linear generative model!
 
 ## Install
 
 To install clone the repo (or just download the package file in the /dist folder) and:
+
 ```commandline
-pip install dist/linear-diffusion-0.1.tar.gz
+pip install linear-diffusion-0.1.tar.gz
 ```
 
 ## Usage
@@ -80,6 +82,7 @@ The code used to generate the image above looks like this:
 
 ```python
 import matplotlib.pyplot as plt
+from itertools import chain
 
 rows=10
 cols=5
