@@ -2,6 +2,8 @@
 
 A Python Library for experimenting with a minimal implementation of a diffusion model built using entirely linear components.
 
+The [accompanying Count Bayesie post](https://www.countbayesie.com/blog/2023/4/21/linear-diffusion) gives a good over view of how this model works (and diffusion models in general).
+
 ## Design
 
 Linear Diffusion is an attempt to explore the performance of essentially the minimum viable [Diffusion Model](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/), such as [Dall-E 2](https://openai.com/product/dall-e-2) and [Stable Diffusion](https://stability.ai/blog/stable-diffusion-v2-release).
