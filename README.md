@@ -13,7 +13,7 @@ Linear Diffusion aims to be to Diffusion Models what Logistic Regression is to L
 Networks. One of my personal favorite benchmarks is that Logistic Regression, often dismissed by 
 data scientists as "just" a linear model, is able to achieve > 90% accuracy on the MNIST data set. 
 While this is far from state of the art, it is much better than many people naively guess. Likewise while Linear
-Diffusion is far from the capabilities of models multiple orders of magnitude inside, it still performs surprisingly well!
+Diffusion is far from the capabilities of models multiple orders of magnitude in size, it still performs surprisingly well!
 
 Diffusion models can be broken down into 3 major parts:
 
